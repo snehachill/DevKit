@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0b0e14;
+  color: #e6e8eb;
+  font-family: "Inter", sans-serif;
+}
+
+/* Blinking amber caret - the signature element, echoed next to every
+   short code to reinforce the "terminal" identity of the product. */
+.caret {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: #f0a63a;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}
