@@ -4,10 +4,38 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
 body {
-  background-color: #0b0e14;
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at top, rgba(240, 166, 58, 0.08), transparent 28%), #0b0e14;
   color: #e6e8eb;
   font-family: "Inter", sans-serif;
+}
+
+::selection {
+  background: rgba(240, 166, 58, 0.18);
+  color: #e6e8eb;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(240, 166, 58, 0.9);
+  outline-offset: 3px;
 }
 
 /* Blinking amber caret - the signature element, echoed next to every

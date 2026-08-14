@@ -1,24 +1,28 @@
 import Link from "next/link";
+import { ArrowRight, Zap, BarChart3, History } from "lucide-react";
 import TerminalDemo from "../components/TerminalDemo";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-bg">
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 sm:px-10 py-6 border-b border-border">
-        <span className="font-mono text-accent text-sm tracking-widest uppercase">
-          devkit
+        <span className="flex items-center gap-2 text-text font-semibold tracking-tight">
+          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/15 text-accent text-sm font-mono">
+            /
+          </span>
+          Devkit
         </span>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link
             href="/login"
-            className="font-mono text-sm text-muted hover:text-text transition"
+            className="text-sm text-muted transition-colors duration-150 hover:text-text px-3 py-2"
           >
             Log in
           </Link>
           <Link
             href="/register"
-            className="font-mono text-sm bg-accent text-bg px-4 py-2 rounded-md hover:bg-accent/90 transition"
+            className="text-sm font-semibold bg-accent text-bg px-4 py-2.5 rounded-xl transition-colors duration-150 hover:bg-accent/90"
           >
             Create account
           </Link>
@@ -28,30 +32,29 @@ export default function Home() {
       {/* Hero */}
       <section className="px-6 sm:px-10 py-20 sm:py-28 max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
         <div>
-          <p className="font-mono text-accent text-xs tracking-widest uppercase mb-5">
-            for developers, by design
+          <p className="text-accent text-xs font-mono tracking-widest uppercase mb-5">
+            link shortening, done right
           </p>
-          <h1 className="font-mono text-4xl sm:text-5xl font-semibold leading-tight mb-6">
-            Short links that
+          <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6 text-text tracking-tight">
+            Short links your
             <br />
-            show their work
-            <span className="caret" />
+            audience can trust
           </h1>
           <p className="text-muted text-base sm:text-lg max-w-md mb-8 leading-relaxed">
-            Every redirect hits cache first, responds instantly, then logs the
-            click asynchronously in the background. Nothing hidden — watch
-            the whole pipeline run in real time.
+            Create a short link in seconds, share it anywhere, and see exactly
+            how it performs — clicks, top links, and trends, all in one place.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-3">
             <Link
               href="/register"
-              className="bg-accent text-bg font-mono font-medium px-6 py-3 rounded-md hover:bg-accent/90 transition"
+              className="inline-flex items-center gap-2 bg-accent text-bg font-semibold px-6 py-3 rounded-xl transition-colors duration-150 hover:bg-accent/90"
             >
               Start for free
+              <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/login"
-              className="border border-border text-text font-mono px-6 py-3 rounded-md hover:border-accent transition"
+              className="border border-border text-text px-6 py-3 rounded-xl transition-colors duration-150 hover:border-accent/50"
             >
               Log in
             </Link>
@@ -66,28 +69,28 @@ export default function Home() {
       {/* Features */}
       <section className="px-6 sm:px-10 py-20 border-t border-border">
         <div className="max-w-6xl mx-auto">
-          <p className="font-mono text-accent text-xs tracking-widest uppercase mb-3">
-            built to be inspected
+          <p className="text-accent text-xs font-mono tracking-widest uppercase mb-3">
+            Why Devkit
           </p>
-          <h2 className="font-mono text-2xl sm:text-3xl font-semibold mb-14 max-w-xl">
-            Three pieces, one pipeline
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-14 max-w-xl text-text tracking-tight">
+            Everything you need, nothing you don't
           </h2>
 
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-3 gap-6">
             <FeatureCard
-              label="01"
-              title="Redis cache"
-              body="Short codes resolve from an in-memory cache before ever touching the database, so redirects stay fast under load."
+              icon={Zap}
+              title="Instant redirects"
+              body="Your links resolve immediately, every time — no lag between a click and where it needs to go."
             />
             <FeatureCard
-              label="02"
-              title="Async logging"
-              body="Click analytics are pushed onto a queue and written by a background worker — never on the critical path of a redirect."
+              icon={BarChart3}
+              title="Real-time analytics"
+              body="Watch clicks roll in as they happen and see which links are working best, at a glance."
             />
             <FeatureCard
-              label="03"
-              title="API tester"
-              body="A built-in request builder for testing your own endpoints, with saved collections and environment variables. Coming soon."
+              icon={History}
+              title="Full link history"
+              body="Every short link you've ever created, searchable and organized, so nothing gets lost."
             />
           </div>
         </div>
@@ -96,39 +99,37 @@ export default function Home() {
       {/* How it works */}
       <section className="px-6 sm:px-10 py-20 border-t border-border">
         <div className="max-w-6xl mx-auto">
-          <p className="font-mono text-accent text-xs tracking-widest uppercase mb-3">
-            the redirect flow
+          <p className="text-accent text-xs font-mono tracking-widest uppercase mb-3">
+            how it works
           </p>
-          <h2 className="font-mono text-2xl sm:text-3xl font-semibold mb-14 max-w-xl">
-            What happens when someone clicks
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-14 max-w-xl text-text tracking-tight">
+            From long link to short link in three steps
           </h2>
 
           <ol className="space-y-6 max-w-2xl">
-            <FlowStep n="1" text="Visitor requests your short link." />
-            <FlowStep n="2" text="Backend checks Redis for the destination URL." />
-            <FlowStep n="3" text="Cache hit or not, the visitor is redirected immediately." />
-            <FlowStep n="4" text="A click-logging job is pushed onto a queue — after the response is already sent." />
-            <FlowStep n="5" text="A separate worker process picks up the job and writes analytics to the database." />
+            <FlowStep n="1" text="Paste any URL you want to share." />
+            <FlowStep n="2" text="Get a short, memorable link back instantly." />
+            <FlowStep n="3" text="Share it anywhere and track every click from your dashboard." />
           </ol>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="px-6 sm:px-10 py-10 border-t border-border flex items-center justify-between">
-        <span className="font-mono text-xs text-muted">devkit</span>
-        <span className="font-mono text-xs text-muted">
-          built with next.js, redis, and bullmq
-        </span>
+        <span className="text-xs text-muted">Devkit</span>
+        <span className="text-xs text-muted">&copy; {new Date().getFullYear()} Devkit. All rights reserved.</span>
       </footer>
     </main>
   );
 }
 
-function FeatureCard({ label, title, body }) {
+function FeatureCard({ icon: Icon, title, body }) {
   return (
-    <div className="border border-border rounded-lg p-6 bg-panel">
-      <span className="font-mono text-xs text-accentDim">{label}</span>
-      <h3 className="font-mono text-lg font-medium mt-3 mb-2">{title}</h3>
+    <div className="border border-border rounded-2xl p-6 bg-panel transition-colors duration-150 hover:border-accent/30">
+      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent">
+        <Icon className="h-4 w-4" />
+      </span>
+      <h3 className="text-lg font-semibold mt-4 mb-2 text-text">{title}</h3>
       <p className="text-muted text-sm leading-relaxed">{body}</p>
     </div>
   );
@@ -137,7 +138,9 @@ function FeatureCard({ label, title, body }) {
 function FlowStep({ n, text }) {
   return (
     <li className="flex items-start gap-4">
-      <span className="font-mono text-accent text-sm mt-0.5 shrink-0">{n}</span>
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent text-xs font-mono mt-0.5">
+        {n}
+      </span>
       <p className="text-text text-sm sm:text-base leading-relaxed">{text}</p>
     </li>
   );
